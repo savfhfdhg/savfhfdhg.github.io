@@ -1,20 +1,21 @@
-layout	title	date	author	cover	tags
-post
-Hello Jekyll
-2017-04-18
-Jekyll
-http://on2171g4d.bkt.clouddn.com/jekyll-banner.png
-jekyll
-Transform your plain text into static websites and blogs.
+By T00ls.Net:安全软件进程自动识别--小工具
+# autoSafety
 
-Welcome
-This site aims to be a comprehensive guide to Jekyll. We’ll cover topics such as getting your site up and running, creating and managing your content, customizing the way your site works and looks, deploying to various environments, and give you some advice on participating in the future development of Jekyll itself.
+## 介绍：
 
-So what is Jekyll, exactly?Permalink
-Jekyll is a simple, blog-aware, static site generator. It takes a template directory containing raw text files in various formats, runs it through a converter (like Markdown) and our Liquid renderer, and spits out a complete, ready-to-publish static website suitable for serving with your favorite web server. Jekyll also happens to be the engine behind GitHub Pages, which means you can use Jekyll to host your project’s page, blog, or website from GitHub’s servers for free.
+1. python3.7编写
+2. 安全软件进程自动识别，
+3. 在测试时候，需要判断当前系统开启了那些安全软件，通过进程来判断，为了更快的识别安全软件编写了此款工具
+4. 程序可自行扩展识别安全进程
+   1. 文件【config.data】按同样的格式进行添加保存
+5.
 
-Helpful HintsPermalink
-Throughout this guide there are a number of small-but-handy pieces of information that can make using Jekyll easier, more interesting, and less hazardous. Here’s what to look out for.
+## 使用说明
 
-Video Test
-<iframe type="text/html" width="100%" height="385" src="http://www.youtube.com/embed/gfmjMWjn-Xg" frameborder="0"></iframe>
+1. 通过命令获取进程信息【tasklist】，复制当前输出的信息，或者直接保存下来，与当前软件同目录
+2. 在控制台执行识别文件
+3. 输入读取的文件名
+4. 输出识别信息，入下图
+
+源码同下载地址
+5. 下载地址：https://gitee.com/git63/penetration_test/tree/master/autoSafety
